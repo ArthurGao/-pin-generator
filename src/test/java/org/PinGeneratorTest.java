@@ -14,21 +14,32 @@ public class PinGeneratorTest {
      * Asserts that the size of the set of generated PINs is equal to the expected PIN count.
      */
     @Test
-    public void testPinCount() {
+    public void testPinCount_givenDefault1000Num_get1000DigitBin() {
         Set<String> pins = pinGenerator.generatePins();
         Assert.assertEquals("Incorrect number of PINs generated", 1000, pins.size());
     }
+
 
     /**
      * Test to check that the length of each generated PIN is correct.
      * Asserts that the length of each PIN is equal to the expected PIN length.
      */
     @Test
-    public void testPinLength() {
+    public void testPinCount_givenDefault4Digit_get4DigitBin() {
         Set<String> pins = pinGenerator.generatePins();
 
         for (String pin : pins) {
             Assert.assertEquals("Incorrect PIN length", 4, pin.length());
+        }
+    }
+
+    @Test
+    public void testPinCount_given5Digit1200Count_get1200Count5DigitBin() {
+        PinGenerator pinGenerator = new PinGenerator(5, 1200);
+        Set<String> pins = pinGenerator.generatePins();
+        Assert.assertEquals("Incorrect number of PINs generated", 1200, pins.size());
+        for (String pin : pins) {
+            Assert.assertEquals("Incorrect PIN length", 5, pin.length());
         }
     }
 

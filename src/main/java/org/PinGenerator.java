@@ -12,21 +12,29 @@ public class PinGenerator {
     /**
      * Constant for the number of PINs to generate.
      */
-    private static final int PIN_COUNT = 1000;
+    private int pinCount = 1000;
 
     /**
-     * Constant for the length of each PIN.
+     *  The length of each PIN.
      */
-    private static final int PIN_LENGTH = 4;
+    private int pinLength = 4;
     private static final Random random = new Random();
+
+    public PinGenerator() {
+    }
+
+    public PinGenerator(int pinLength, int pinCount) {
+        this.pinLength = pinLength;
+        this.pinCount = pinCount;
+    }
 
     public Set<String> generatePins() {
         Set<String> pins = new HashSet<>();
 
-        while (pins.size() < PIN_COUNT) {
+        while (pins.size() < pinCount) {
             StringBuilder pin = new StringBuilder();
 
-            for (int i = 0; i < PIN_LENGTH; i++) {
+            for (int i = 0; i < pinLength; i++) {
                 pin.append(random.nextInt(10));
             }
 
