@@ -4,8 +4,19 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+/**
+ *  Library to generate unique 4 digit PINs.
+ */
 public class PinGenerator {
+
+    /**
+     * Constant for the number of PINs to generate.
+     */
     private static final int PIN_COUNT = 1000;
+
+    /**
+     * Constant for the length of each PIN.
+     */
     private static final int PIN_LENGTH = 4;
     private static final Random random = new Random();
 
